@@ -3,13 +3,10 @@ COPY server.yml /etc/ntfy/server.yml
 COPY user.db /etc/ntfy/user.db
 COPY acl.yml /etc/ntfy/acl.yml
 
-# Find the ntfy executable path for debugging
-RUN find / -name ntfy # ADDED FOR DEBUGGING
-
-# Create users and set ACLs during build time (will update with correct path later)
-# RUN /usr/bin/ntfy user add ainetgroupllc --role=admin --password "aa136479"
-# RUN /usr/bin/ntfy user add gemini_cli_agent --password "aa136479"
-# RUN /usr/bin/ntfy access gemini_cli_agent wise-cloud-falcon-jump write
+# Create users and set ACLs during build time
+RUN /usr/bin/ntfy user add ainetgroupllc --role=admin --password "aa136479"
+RUN /usr/bin/ntfy user add gemini_cli_agent --password "aa136479"
+RUN /usr/bin/ntfy access gemini_cli_agent wise-cloud-falcon-jump write
 
 # Set the command to run ntfy serve
 CMD ["ntfy", "serve"]
