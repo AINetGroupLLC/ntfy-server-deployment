@@ -1,5 +1,9 @@
 base-url: "https://ntfy-server-gemini-cli.onrender.com"
 
+listen-http: ":80" # Explicitly listen on port 80 for Render
+
+log-level: debug # ADDED FOR DEBUGGING
+
 auth-file: "./user.db" # Changed to relative path
 
 auth-default-access: "deny-all"
