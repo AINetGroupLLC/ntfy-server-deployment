@@ -8,10 +8,5 @@ auth-file: "./user.db" # Changed to relative path
 
 auth-default-access: "deny-all"
 
-auth-users:
-  - "ainetgroupllc:$2a$10$6TsyMNZqBBi6aIm0MnIndeWFU6wFjLvrDRiI//PDAMZRlkf3md8QO:admin"
-  - "gemini_cli_agent:$2a$10$6TsyMNZqBBi6aIm0MnIndeWFU6wFjLvrDRiI//PDAMZRlkf3md8QO:user"
-
-auth-access:
-  - "gemini_cli_agent:wise-cloud-falcon-jump:write"
-  - "*:*:deny-all" # Default deny for anonymous and other topics
+# auth-users and auth-access will now be managed by entrypoint.sh
+# to avoid server startup issues and ensure persistence.
