@@ -1,0 +1,13 @@
+base-url: "http://NTFY_RENDER_SERVICE_URL_PLACEHOLDER"
+
+auth-file: "/etc/ntfy/user.db"
+auth-default-access: "deny-all"
+
+auth-users:
+  - "ainetgroupllc:$2a$10$6TsyMNZqBBi6aIm0MnIndeWFU6wFjLvrDRiI//PDAMZRlkf3md8QO:admin"
+  - "gemini_cli_agent:$2a$10$6TsyMNZqBBi6aIm0MnIndeWFU6wFjLvrDRiI//PDAMZRlkf3md8QO:user"
+
+auth-access:
+  - "ainetgroupllc:wise-cloud-falcon-jump:read-write"
+  - "gemini_cli_agent:wise-cloud-falcon-jump:write-only"
+  - "*:*:deny-all"
