@@ -1,6 +1,7 @@
 base-url: "https://ntfy-server-gemini-cli.onrender.com"
 
-auth-file: "/etc/ntfy/user.db"
+auth-file: "./user.db" # Changed to relative path
+
 auth-default-access: "deny-all"
 
 auth-users:
