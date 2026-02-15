@@ -8,4 +8,9 @@ auth-users:
   - "gemini_cli_agent:$2a$10$6TsyMNZqBBi6aIm0MnIndeWFU6wFjLvrDRiI//PDAMZRlkf3md8QO:user"
 
 auth-access:
-  - "*:*:deny-all"
+  - username: "gemini_cli_agent"
+    topic: "wise-cloud-falcon-jump"
+    access: "write"
+  - username: "*" # Default deny for anonymous and other topics
+    topic: "*"
+    access: "deny-all"
