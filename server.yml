@@ -10,3 +10,4 @@ auth-default-access: "deny-all"
 
 # auth-users and auth-access will now be managed by entrypoint.sh
 # to avoid server startup issues and ensure persistence.
+# Removed auth-users and auth-access sections.
