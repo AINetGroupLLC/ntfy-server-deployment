@@ -1,12 +1,9 @@
 FROM binwiederhier/ntfy:latest
-WORKDIR /app # Set working directory to /app
-
 COPY server.yml /etc/ntfy/server.yml
-COPY user.db /app/user.db # Copy user.db to the writable /app directory
 COPY acl.yml /etc/ntfy/acl.yml
 
-# Initialize user.db before adding users (in the writable WORKDIR)
-RUN touch ./user.db # Ensure user.db exists and is writable in /app
+# Make /etc/ntfy writable during build to allow ntfy to create user.db
+RUN chmod 777 /etc/ntfy
 
 # Create users and set ACLs during build time
 RUN /usr/bin/ntfy user add ainetgroupllc --role=admin --password "aa136479" --config /etc/ntfy/server.yml
