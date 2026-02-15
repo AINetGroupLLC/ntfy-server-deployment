@@ -1,7 +1,14 @@
 #!/bin/bash
+set -euxo pipefail # Enable verbose output and exit on error
+
+echo "Starting ntfy entrypoint script..."
 
 # Ensure ntfy server is not already running from a previous attempt
 killall ntfy || true
+
+# Give ntfy a moment to warm up if it starts automatically
+echo "Waiting for ntfy process to settle (if any)..."
+sleep 5
 
 # Generate password hashes
 CEO_HASH=$(/usr/bin/ntfy user hash "aa136479")
@@ -24,6 +31,9 @@ INSERT OR REPLACE INTO users (id, hash, role, created, last_login) VALUES ('gemi
 INSERT OR REPLACE INTO access (user_id, topic, access) VALUES ('gemini_cli_agent', 'wise-cloud-falcon-jump', 'write');
 EOF
 
+echo "User.db population complete. Contents of user.db:"
+sqlite3 user.db ".dump" # Dump database content for debugging
+
 # Start ntfy server
 echo "Starting ntfy server..."
-/usr/bin/ntfy serve
+exec /usr/bin/ntfy serve # Use exec to replace the shell process with ntfy serve
