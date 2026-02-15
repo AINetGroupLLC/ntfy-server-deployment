@@ -1,4 +1,4 @@
-base-url: "http://NTFY_RENDER_SERVICE_URL_PLACEHOLDER"
+base-url: "https://ntfy-server-gemini-cli.onrender.com"
 
 auth-file: "/etc/ntfy/user.db"
 auth-default-access: "deny-all"
