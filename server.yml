@@ -1,13 +1,4 @@
 base-url: "https://ntfy-server-gemini-cli.onrender.com"
-
-listen-http: ":80" # Explicitly listen on port 80 for Render
-
-log-level: debug # ADDED FOR DEBUGGING
-
-auth-file: "./user.db" # Changed to relative path
-
-auth-default-access: "deny-all"
-
-# auth-users and auth-access will now be managed by entrypoint.sh
-# to avoid server startup issues and ensure persistence.
-# Removed auth-users and auth-access sections.
+listen-http: ":80"
+log-level: debug
+# No auth-related configuration here; entirely managed by environment variables
