@@ -5,7 +5,7 @@ RUN rm -f /etc/ntfy/server.yml /etc/ntfy/user.db /etc/ntfy/acl.yml
 
 # Copy the entrypoint script and make it executable
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN sed -i 's/\r$//' /usr/local/bin/entrypoint.sh && chmod +x /usr/local/bin/entrypoint.sh
 
 # Set the entrypoint to our script
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
