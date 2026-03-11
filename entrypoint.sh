@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Start ntfy in the background
 /usr/bin/ntfy serve &
